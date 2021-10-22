@@ -1,0 +1,20 @@
+@host = http://localhost:3001
+
+POST  {{host}}/api/users
+Content-Type: application/json
+
+{
+    "name": "Carlos Gonzalez",
+    "email": "sdfag@test.com",
+    "password": "Hola123Hola",
+    "username": "CarlosGonArr"
+}
+###
+
+POST {{host}}/api/users/login
+Content-Type: application/json
+
+{ 
+"email" : "sdfag@test.com",
+"password": "Hola123Hola"
+}

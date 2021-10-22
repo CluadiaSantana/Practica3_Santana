@@ -1,3 +1,5 @@
+const { resolve } = require("path/posix");
+
 let database;
 
 class Database {
@@ -21,8 +23,20 @@ class Database {
     findOne(filters) {
         return this.collection.findOne(filters);
     }
-//insert
 
+    insertOne(data){
+        return new Promise ((resolve, reject) =>{
+            this.collection.insertOne(data, function (error, response) {
+                if(error) {
+                    reject(error);
+                // return 
+                } else {
+                    resolve(response);
+              // return 
+                    }
+            })
+        })
+    };
 }
 
 module.exports = Database;
