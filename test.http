@@ -1,20 +1,15 @@
-@host = http://localhost:3001
 
-POST  {{host}}/api/users
+
+
+POST  http://localhost:3001/api/salas
 Content-Type: application/json
+x-auth: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImMuZ29AdGVzdC5jb20iLCJyb2wiOiJVc3VhcmlvIiwiaWQiOiI1cTB3aHBieTMiLCJpYXQiOjE2MzQ5NTQxNTh9.auD6SjIYGEEy4UcrA8AIqYQ0MWV1M9BkJQjRUns8X0Q
 
-{
-    "name": "Carlos Gonzalez",
-    "email": "sdfag@test.com",
-    "password": "Hola123Hola",
-    "username": "CarlosGonArr"
+{ 
+"email": "c.go@test.com",
+"password": "Hola123Hola"
 }
 ###
 
-POST {{host}}/api/users/login
-Content-Type: application/json
-
-{ 
-"email" : "sdfag@test.com",
-"password": "Hola123Hola"
-}
+POST  http://localhost:3001/api/salas/link/kicxswdsn
+x-auth: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdmZC5nb0B0ZXN0LmNvbSIsInJvbCI6IlVzdWFyaW8iLCJpZCI6IjQzYWVyd3M3ZSIsImlhdCI6MTYzNDk2NDI0NX0.319nYsn0htYs9f30fPM4c0nxA5PSwA1jIcJx-HjzEHM

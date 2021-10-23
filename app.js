@@ -8,7 +8,7 @@ const MongoClient= require('mongodb').MongoClient;
 const users = require('./src/routes/users'); 
 const Database = require('./src/models/database');
 const apiRoutes = require('./src/routes/index');
-const { log, test } = require("./middlewares/logs");
+const { log } = require("./middlewares/logs");
 
 
 app.use(express.static(path.join(__dirname, 'public')));

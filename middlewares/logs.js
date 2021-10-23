@@ -4,9 +4,5 @@ let log = (req,res,next)=>{
     next();
 }
 
-function test (req, res, next){
-    console.log("test");
-    next();
-}
 
-module.exports = {log, test}
+module.exports = {log}
