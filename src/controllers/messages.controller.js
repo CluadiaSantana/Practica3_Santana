@@ -22,6 +22,9 @@ class MessengeController{
 
     static newMessenge(req,res){
         let token= req.headers["x-auth"];
+        if(!token){
+            return res.status(401).end();
+        }
         let userPer = MessengeController.authPer(token);
         let sala= req.body.sala;
         const database= new Database("messages");

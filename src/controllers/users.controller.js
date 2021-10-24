@@ -36,6 +36,7 @@ class UsersController {
             rol: "Usuario",
             id: ""+ Math.random().toString(36).substr(2, 9)
         }).then(response => {
+            res.statusMessage = "User created correctly!";
             return res.status(201).end();
         })
             .catch(error => {
@@ -46,7 +47,7 @@ class UsersController {
     static login(req, res) {
         let { email, password } = req.body;
         if (!email || !password) {
-            res.statusMessage = "User dosen´t exist!";
+            res.statusMessage = "Data is missing";
             return res.status(400).end();
         }
         const database = new Database('users');
@@ -64,6 +65,7 @@ class UsersController {
                     id: results.id
                 };
                 let token = jwt.sign(response, secret);
+                res.statusMessage = "Login sucess";
                 return res.status(200).send({
                     "email": response.email,
                     "rol": response.rol,

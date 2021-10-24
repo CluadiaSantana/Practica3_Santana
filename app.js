@@ -22,20 +22,31 @@ const port = process.env.PORT;
 
 const swaggerOptions ={
     swaggerDefinition: {
-        swagger: "2.0",
-        info:{
-            "title": "Swagger Tequilachat",
-            "descrition": "Practica 3  API Tequilachat",
-            "version": "1.0.0",
-            "servers": ['http://localhost:'+port],
-            "contact": {
-                "name":"Santana",
-                "email": "is726396@iteso.mx"
+        info: {
+            title: 'Tequilachat pract3', 
+            version: '1.0.0',
+            despcription: 'Practica 3 Documentacion de Api', 
+            server: ['http://localhost:'+port],
+            contact:{
+                name:'Santana',
+                email: 'is726396@iteso.mx'
             }
-        }
-    },
-    apis: ['app.js', 'src/routes/index.js', 'src/routes/links.js', 'src/routes/msg.js', 'src/routes/salas.js', 'src/routes/users.js']
-}
+        },
+        basePath: "/",
+        components: {
+            securitySchemes: {
+                bearerAuth: {
+                type: "apiKey",
+                in: "header",
+                bearerFormat: "JWT",
+                name: 'x-auth'
+                }
+            }
+        },
+        openapi: "3.0.0",
+        },
+    apis: ['app.js', 'src/routes/index.js',  'src/routes/users.js', 'src/routes/salas.js', 'src/routes/messages.js'],
+    };
 
 
 app.use(log);

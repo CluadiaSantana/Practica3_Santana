@@ -24,6 +24,7 @@ class SalaController{
     static create(req,res){
         const database= new Database('salas')
         const datarela= new Database('userSala');
+        console.log(req.headers);
         let token= req.headers["x-auth"];
         let userPer = SalaController.authPer(token);
         //console.log(secret);
@@ -82,6 +83,7 @@ class SalaController{
     static signSalaLink(req,res){
         const database= new Database('salas')
         const datarela= new Database('userSala')
+        console.log(req.params.id)
         let token= req.headers["x-auth"];
         let userPer = SalaController.authPer(token);
         if(!userPer){
@@ -97,7 +99,7 @@ class SalaController{
                         return res.status(201).end();
                     })
                         .catch(error => {
-                        res.statusMessage = "User already exist!";
+                        res.statusMessage = "User already register!";
                         return res.status(400).end();
                     });
                 }else{
